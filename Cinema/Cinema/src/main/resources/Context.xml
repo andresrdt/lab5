@@ -10,6 +10,6 @@
 
     <context:component-scan base-package="edu.eci.arsw" />
   
-    <bean id = "sc" class = "edu.eci0.arsw.cinema.persistence.impl.InMemoryCinemaPersistence" />
+    <bean id = "sc" class = "edu.eci.arsw.springdemo.SpanishSpellChecker" />
 
 </beans>
