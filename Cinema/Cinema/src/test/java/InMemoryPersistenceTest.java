@@ -77,7 +77,7 @@ public class InMemoryPersistenceTest {
         
     }
     @Test
-    public void getCinemaByName(){
+    public void getCinemaByName() throws CinemaPersistenceException{
         InMemoryCinemaPersistence ipct=new InMemoryCinemaPersistence();
         
         String functionDate = "2018-12-18 15:30";
@@ -87,6 +87,7 @@ public class InMemoryPersistenceTest {
         functions.add(funct1);
         functions.add(funct2);
         Cinema c=new Cinema("Movies Bogotá",functions);
+        ipct.saveCinema(c);
         c.getName();
     }
     @Test
@@ -107,7 +108,7 @@ public class InMemoryPersistenceTest {
         }
     }
     @Test
-    public void BuyTicketTest2(){
+    public void BuyTicketTest2() throws CinemaPersistenceException{
        InMemoryCinemaPersistence ipct=new InMemoryCinemaPersistence();
         
         String functionDate = "2018-12-18 15:30";
@@ -117,6 +118,8 @@ public class InMemoryPersistenceTest {
         functions.add(funct1);
         functions.add(funct2);
         Cinema c=new Cinema("Movies Bogotá",functions);
+        ipct.saveCinema(c);
+        
         try{
             ipct.buyTicket(2, 2,"Movies Bogotá",functionDate,"The Night 2");
         } catch (CinemaException e){
