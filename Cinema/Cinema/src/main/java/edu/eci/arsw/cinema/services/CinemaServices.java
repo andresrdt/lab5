@@ -5,13 +5,17 @@
  */
 package edu.eci.arsw.cinema.services;
 
+import edu.eci.arsw.cinema.flitro.filter;
 import edu.eci.arsw.cinema.model.Cinema;
 import edu.eci.arsw.cinema.model.CinemaFunction;
+import edu.eci.arsw.cinema.model.Movie;
 import edu.eci.arsw.cinema.persistence.CinemaException;
 import edu.eci.arsw.cinema.persistence.CinemaPersistenceException;
 import edu.eci.arsw.cinema.persistence.CinemaPersitence;
 import java.util.List;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -21,9 +25,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class CinemaServices {
     @Autowired
     CinemaPersitence cps=null;
-    
+    @Autowired
+    filter fil=null;
     public void addNewCinema(Cinema c){
-        
+        try {
+            cps.saveCinema(c);
+        } catch (CinemaPersistenceException ex) {
+            Logger.getLogger(CinemaServices.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public Set<Cinema> getAllCinemas(){
@@ -54,5 +63,7 @@ public class CinemaServices {
     public void setCps(CinemaPersitence cps) {
         this.cps = cps;
     }
-
+    public List<Movie> Avility(Cinema cinema,String date,String category){
+		return fil.filtro(cinema, date, category);
+    }
 }

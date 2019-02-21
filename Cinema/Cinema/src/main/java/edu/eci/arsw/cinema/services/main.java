@@ -44,6 +44,7 @@ public class main {
             System.out.println(e.getMessage());
         }
         System.out.println(cn.getFunctionsbyCinemaAndDate("Movies Bogota", functionDate));
+        System.out.println(cn.Avility(c, functionDate,"Action").get(0).getName()+" "+cn.Avility(c, functionDate,"Action").get(0).getGenre());
         /*
         //el cine no existe
         try{

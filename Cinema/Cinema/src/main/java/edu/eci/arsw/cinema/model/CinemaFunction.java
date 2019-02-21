@@ -62,7 +62,17 @@ public class CinemaFunction {
         this.date = date;
     }
     
-    
+    public int Avility(){
+        int avility = 0;
+        for (List<Boolean> i : seats) {
+            for(Boolean j: i){
+                if(j=true){
+                    avility+=1;
+                }
+            }
+        }
+        return avility;
+    }
     
     
 }

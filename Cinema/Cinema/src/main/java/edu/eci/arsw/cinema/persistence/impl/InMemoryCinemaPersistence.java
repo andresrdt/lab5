@@ -5,6 +5,7 @@
  */
 package edu.eci.arsw.cinema.persistence.impl;
 
+import edu.eci.arsw.cinema.flitro.filter;
 import edu.eci.arsw.cinema.model.Cinema;
 import edu.eci.arsw.cinema.model.CinemaFunction;
 import edu.eci.arsw.cinema.model.Movie;
@@ -25,7 +26,7 @@ import java.util.logging.Logger;
 public class InMemoryCinemaPersistence implements CinemaPersitence {
 
     private final Map<String, Cinema> cinemas = new HashMap<>();
-
+    
     public InMemoryCinemaPersistence() {
         //load stub data
         String functionDate = "2018-12-18 15:30";
